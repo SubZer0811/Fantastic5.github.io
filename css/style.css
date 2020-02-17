@@ -1,0 +1,224 @@
+
+body{
+  overflow-x: hidden ;
+  font-family: 'Lato' , sans-serif;
+  color: #505962 ;
+  line-height: 1;
+}
+
+a.college{
+  color: white ;
+}
+
+a:hover{
+  color: 	#e00000 ;
+  text-decoration: underline;
+}
+
+.offset:after{
+  display: block ;
+  content: "" ;
+  height: 4rem ;
+  margin-top: -4rem ;
+}
+
+p{
+  font-size: 1.3rem;
+}
+
+.heading-underline{
+  width: 3rem;
+  height: 0.2rem;
+  background-color: #e00000;
+  margin: 0 auto 1rem;
+}
+
+/* Navigation */
+.navbar{
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem ;
+  letter-spacing: 0.1rem ;
+  background-color: rgba(0, 0, 0, 0.4)!important;
+}
+
+.navbar-brand img{
+  height: 3rem ;
+  background: white;
+}
+
+.navbar-nav li{
+  padding-right: 0.7rem ;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+  color: white ;
+  padding-top: 0.8rem ;
+}
+
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link:hover{
+  color: #c40404 ;
+}
+
+.ilogo{
+  width: 40% ;
+  max-width: 180px ;
+  min-width: 100px ;
+  height: auto;
+}
+
+/* Landing Page */
+.home-inner{
+  background-image: url("../img/background.png") ;
+}
+
+.caption{
+  width: 100% ;
+  max-width: 100% ;
+  position: absolute;
+  top: 38% ;
+  z-index: 1 ;
+  color: white ;
+  text-transform: uppercase;
+}
+.caption h1{
+  font-size: 3.8rem ;
+  font-weight: 700;
+  letter-spacing: 0.3rem ;
+  text-shadow: 0.1rem 0.1rem 0.8rem black ;
+  padding-bottom: 1rem ;
+}
+
+.caption h3{
+  font-size: 2rem ;
+  text-shadow: 0.1rem 0.1rem 0.5rem black ;
+  padding-bottom: 1.6rem ;
+}
+.narrow h1 {
+    font-size: 2.4rem;
+  }
+
+.flogo{
+  padding-bottom: 1rem ;
+}
+
+
+/* start of about */
+.narrow {
+  width: 75%;
+  margin: 0rem auto;
+  padding-top: 2rem;
+}
+
+.dark2{
+  background-image: url("../img/bg2.jpg");
+  background-size: cover;
+  color: white ;
+  padding: 0rem 2rem 5rem;
+}
+
+.narrow h1{
+  font-size: 2.4rem ;
+}
+
+
+/* members */
+a.team{
+	color: #6e6e6e;
+}
+
+a.team:hover{
+  color: #007bff;
+}
+
+.member-pic{
+  width: 80%;
+  border-radius: 50%; 
+  padding-bottom: 1rem;
+}
+
+#mlist {
+  margin: 1rem ;
+  font-size: 1.1rem ;
+  color: #1ebba3 ;
+}
+.member-hr{
+  border-top: 0.2rem solid #0067a5;
+}
+.member-heading{
+  padding-top: 1.8rem ;
+}
+
+/* contact section */
+.mail{
+  color: white;
+}
+.mail:hover{
+  color: #007bff;
+}
+footer{
+  background-color: #202020 ;
+  color: white ;
+  padding: 2rem 0 2rem ;
+}
+footer img{
+  height: 3rem ;
+  margin: 3rem 0 1rem;
+  background: white;
+}
+.social a{
+  font-size: 1.6rem ;
+  margin: 1.2rem 0.5rem 0 0 ;
+}
+
+.fa-facebook{
+  color: #3b5998 ;
+}
+.fa-instagram{
+  color: #c32aa3 ;
+}
+
+.fa-youtube{
+  color: #bb0000 ;
+}
+.fa-facebook: hover , .fa-instagram: hover , .fa-youtube: hover{
+  color: #d5d5d5 ;
+}
+hr.socket{
+  width: 100% ;
+  border-top: 0.2rem solid #e00000 ;
+  margin-top: 2rem ;
+}
+
+
+.dark3{
+  background-image: url("../img/bg5.jpg");
+  background-size: cover;
+  /* background-color: rgba(0,0,0,0.65) ; */
+  color: white ;
+  padding: 2.5rem 2rem ;
+}
+
+
+
+
+
+/*============ BOOTSTRAP BREAK POINTS:
+
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+=============*/
