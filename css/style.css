@@ -122,6 +122,9 @@ p{
   font-size: 2.4rem ;
 }
 
+.rithic{
+  color: aliceblue;
+}
 
 /* members */
 a.team{
@@ -182,9 +185,7 @@ footer img{
 .fa-youtube{
   color: #bb0000 ;
 }
-.fa-facebook: hover , .fa-instagram: hover , .fa-youtube: hover{
-  color: #d5d5d5 ;
-}
+
 hr.socket{
   width: 100% ;
   border-top: 0.2rem solid #e00000 ;
@@ -200,7 +201,14 @@ hr.socket{
   padding: 2.5rem 2rem ;
 }
 
-
+.dark4{
+  background-image: url("../img/rep_1.png");
+  /* background-size: conta */
+  /* background-color: rgba(0,0,0,0.65) ; */
+  color: black ;
+  padding: 1rem 2rem ;
+  
+}
 
 
 

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="widht=device-width, initial-scale=1">
+	<title>Fantastic 5</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/fixed.css">
+	<link rel="stylesheet" href="css/fontawesome.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script>
+	  $('.nav-link').on('click', function () {
+		$('.navbar-collapse').collapse('hide');
+	  });
+	</script>
+  </head>
+
+	<body>
+
+		<div id="project" class="dark4">
+
+			<div class="text-center">
+			  <br><br><br><br>
+			  <h1 class="heading">Yummy Foods</h1>
+			  <div class="heading-underline" style="width: 5rem;"></div>
+			  
+			  <br><br>
+		
+			  <h5>
+					
+				Our wewbsite is all about food ordering from our institute's Cafeteria. 
+				<p>In our database, we have 3 entities, and 2 relationships. They are as follows:</p>
+				<br><br>
+				
+				<u><b><h2>Entities:</h2></b></u>
+	
+				<p><h4>1. Customer</h4></p>
+				<p><h6>Its attributes are as follows:</h6></p>
+				<p>a. Hostel (Ashwatha/Ashoka/Jasmine)</p>
+				<p>b. c_id (Phone number of Customer - Primary Key)</p>
+				<p>c. Name (For identification)</p>
+				<br>
+
+				<p><h4>2. Menu</h4></p>
+				<p><h6>Its attributes are as follows:</h6></p>
+				<p>a. Price (Cost)</p>
+				<p>b. fid (ID given to each item - Primary Key)</p>
+				<p>3. Item (Food)</p>
+				<br>
+
+				<p><h4>3. Stock</h4></p>
+				<p><h6>Its attributes are as follows:</h6></p>
+				<p>a. fid (Foreign Key)</p>
+				<p>b. Quantity (Quantity of food available)</p>
+				<br><br><br>
+				<p><h2>Relationships</h2></p>
+
+				<br>
+				<p><h4>1. Order</h4></p>
+				<p><h6>Its attributes are as follows:</h6></p>
+				<p>a. order_id (Unique Order number generated)</p>
+				<p>b. c_id (Foreign Key)</p>
+				<p>c. f_id (Foreign Key)</p>
+				<p>d. quantity (Amount of items ordered by Customer)</p>
+				<br>
+
+				<p><h4>2. Availability</h4></p>
+				<p>Checks if the required quantity needed by customer is available</p>
+			  </h5>
+		
+			  <u><b><h2>ER Diagram:</h2></b></u>
+			  <img src="img/ER.png" style="width: 50%;">
+			</div>
+		  </div>
+
+
+	</body>
+
+
+</html>
