@@ -7,16 +7,20 @@
 
 	<?php include 'main.php' ?>
 
-		<h2>Enter Details of Item to Add</h2>
-		<form method="post" action="">  
-			item_id: <input type="integer" name="item_id">
-			<br><br>
-			item_name: <input type="text" name="item_name">
-			<br><br>
-			price: <input type="integer" name="price">
-			<br><br>
-			<input type="submit" name="insert" value="Submit">  
+		<div class="main" style="left">
 		
+		<div class="ah2">Enter details of Item to be added</div>
+		<br>
+		<br>
+		<form method="post" action="">  
+			<b>Item ID:<br><input type="integer" name="item_id" placeholder="Enter Item ID of new item ...">
+			<br><br>
+			Item Name:<br><input type="text" name="item_name" placeholder="Enter Item Name of new item ...">
+			<br><br>
+			Price:<br><input type="integer" name="price" placeholder="Enter Price of new item ...">
+			<br><br>
+			<input type="submit" name="insert" value="Submit">
+			</b>
 		</form>
 
 		<?php
@@ -46,6 +50,7 @@
 			}
 			}
 		?>
-
+		</div>
+		
 	</body>
 </html>

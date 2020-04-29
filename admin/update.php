@@ -4,18 +4,20 @@
 	</head>
 	<body>
 
-         <?php  include 'main.php'?> 
-		
-		<h2>Enter Details of Item to Update</h2>
+		<?php  include 'main.php'?> 
+		<div class="main">
+		<div class="ah2">Enter details of item to be updated</div>
+		<br>
+		<br>
 		<form method="post" action="">  
-			item_id: <input type="integer" name="item_id">
+			<b>Item ID:<br><input type="integer" name="item_id" placeholder="Enter Item ID to be updated ...">
 			<br><br>
-			item_name: <input type="text" name="item_name">
+			Item Name:<br><input type="text" name="item_name" placeholder="Enter Item Name to be updated ...">
 			<br><br>
-			price: <input type="integer" name="price">
+			Price:<br><input type="integer" name="price" placeholder="Enter Price to be updated ...">
 			<br><br>
-			<input type="submit" name="update" value="Submit">  
-		
+			<input type="submit" name="insert" value="Submit">
+			</b>
 		</form>
 
 		<?php
@@ -48,6 +50,6 @@
 		}
 		
 		?>
-
+		</div>
 	</body>
 </html>

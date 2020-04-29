@@ -5,13 +5,16 @@
 	<body>
 
 		<?php include 'main.php'?>
-
-		<h2>Enter ID of Item to Delete</h2>
+		<div class="main">
+		<div class="ah2">Enter ID of item to be deleted</div>
+		<br>
+		<br>
 		<form method="post" action="">  
-			item_id: <input type="integer" name="item_id">
+			<b>
+			Item ID:<br><input type="integer" name="item_id" placeholder="Enter Item ID to be deleted ...">
 			<br><br>
 			<input type="submit" name="delete" value="Submit">  
-		
+			</b>
 		</form>
 
 		<?php
@@ -25,20 +28,20 @@
 
 			if(isset($_POST['delete'])){
 
-			$item_id = test_input($_POST["item_id"]);
+				$item_id = test_input($_POST["item_id"]);
 
-			$sql = "DELETE FROM menu WHERE item_id='$item_id'";
-	
-			if ($conn->query($sql) === TRUE) {
-			    echo "Record deleted successfully";
-			}
-			else{
-				echo $conn->error;
-			}
+				$sql = "DELETE FROM menu WHERE item_id='$item_id'";
+		
+				if ($conn->query($sql) === TRUE) {
+					echo "Record deleted successfully";
+				}
+				else{
+					echo $conn->error;
+				}
 			
 			}	
 		
 		?>
-
+		</div>
 	</body>
 </html>
