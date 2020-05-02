@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$servername = "localhost";
+$username = "phpmyadmin";
+$password = "12345678";
+$dbname = "yummy5";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT order_id,item_name,qua
+$result = $conn->query($sql);
+
+?>
+
+</body>
+</html>
