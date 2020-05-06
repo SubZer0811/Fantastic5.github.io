@@ -27,8 +27,8 @@ border-style:solid;
 color: #1DC7EA;
 font-size: 15px;
 text-align: left;
-/* margin-top:40px;
-margin-left:50px; */
+margin-top:40px;
+margin-left:50px;
 }
 th {
 font-family:Helvetica;
@@ -37,6 +37,11 @@ color: white;
 }
 tr:nth-child(even) {background-color: #f2f2f2}
 tr:hover {background-color:#ddd;}
+
+.table_small{
+    width: 50%;
+}
+
 </style>
 </head>
 
@@ -119,45 +124,89 @@ tr:hover {background-color:#ddd;}
 
 
             <p style:"  font-family:Algerian ">
-           <br> REPORTS
+           <br> Undelivered
             </p>
+            
 
-<body>
-<div style="padding: 40px 0px 0px 50px">
-<table>
-<tr>
-<th>Name</th>
-<th>Phone Number</th>
-<th>Order ID</th>
-<th>Description</th>
-</tr>
 <?php
 $servername = "localhost";
 $username = "phpmyadmin";
 $password = "12345678";
 $dbname = "yummy5";
+
+// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT name,phone_number,order_id,description FROM reports";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-// output data of each row
-while($row = $result->fetch_assoc()) {
-echo "<tr><td>" . $row["name"]. "</td><td>" . $row["phone_number"] . "</td><td>"
-. $row["order_id"]. "</td><td>".$row["description"]."</td></tr>";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+	$query = 'select order_id from order_';
+	$res = $conn->query($query);
+	if($res->num_rows > 0){
+		while($row = $res->fetch_assoc()){
+//			echo $row['order_id'];
+//			echo $_POST[($row['order_id'])];
+			if(isset($_POST[$row['order_id']])){
+
+				$query = 'UPDATE order_ SET order_status = 1 where order_id =' . $row['order_id'];
+                $conn->query($query);
+                echo 'Order ID: ';
+				echo $row['order_id'];
+                echo ' Delivered';
+                header('Location: undelv_disp_orders.php');
+			}
+		}
+	}
 }
-echo "</table>";
-} else { echo "0 results"; }
+
+// Create connection
+$conn1 = new mysqli($servername, $username, $password, $dbname);
+$orders = 'select order_id, ph_no, order_status, hostel from order_ where order_status=0';
+$result = $conn->query($orders);
+if ($result->num_rows > 0) 
+{
+    echo '<table><tr><th>Order_id</th><th>Hostel</th><th>Order_status</th><th>Order Items</th><th>Confirmation</th></tr>';
+		while($row = $result->fetch_assoc()) 
+		{
+            
+			echo '<tr><td>'.$row["order_id"].'</td><td>'.$row["hostel"].'</td><td>'.$row["order_status"].'</td>';
+            $items = 'select item_id,item_name, quantity from order_details natural join menu where order_id = ' . $row["order_id"] . ';';
+            // $items = 'select item_id, quantity from order_details where order_id = ' . $row["order_id"] . ';';
+			$result1 = $conn->query($items);
+            
+            echo '<td>';
+                if($result1->num_rows > 0)
+				{
+					echo '<table class="table_small"><tr><th>Item_name</th><th>Quantity</th></tr>';
+						while($item_row = $result1->fetch_assoc()) 
+						{
+							echo '<tr><td>'.$item_row["item_name"].'</td><td>'.$item_row["quantity"].'</td></tr>';
+						}
+							echo '</table>';
+				}
+			        echo "</td>";
+				// // else
+				// // {
+				// // 	echo '<br>No items';
+				// // }
+				echo '<td><form action="" method="POST" name='.$row["order_id"].'>'.
+                    // '<input type="submit" value='.$row["order_id"].' name="'. $row[order_id] .'"/>'.
+                    '<input type="submit" value="Click to confirm delivery" name="'. $row[order_id] .'"/>'.
+				"</form></td></tr>";
+
+    } 
+    echo '</table>';
+} else {
+	echo "0 results";
+}
+
+
 $conn->close();
 ?>
-</table>
 
-            
-
-    
 </body>
 <script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

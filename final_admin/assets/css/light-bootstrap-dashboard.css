@@ -50,6 +50,9 @@
     }
 }
 
+
+
+
 /*           Font Smoothing      */
 
 body,
@@ -696,7 +699,7 @@ body>.navbar-collapse[data-color="purple"]:after {
 }
 
 .main-panel>.content {
-    padding: 30px 15px;
+    padding: 30px 30px;
     min-height: calc(100% - 123px);
 }
 
@@ -5328,3 +5331,4 @@ License - nucleoapp.com/license/
 .huge-text{
     font-size: 700%;
 }
+

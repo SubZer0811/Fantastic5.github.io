@@ -14,7 +14,15 @@
     <link href="../assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
     
 </head>
+<?php
+    session_start();
+        if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']==false)
+        {   
+            header("Location:login.php");
 
+        }
+
+?>
 <body>
     <div class="wrapper">
         <div class="sidebar"  data-color="azure">
@@ -40,6 +48,12 @@
                         </a>
                     </li>
                     <li>
+                        <a class="nav-link" href="edit_menu.php">
+                            <i class="nc-icon nc-circle-09"></i>
+                            <p>Update Stock</p>
+                        </a>
+                    </li>
+                    <li>
                         <a class="nav-link" href="orders.php">
                             <i class="nc-icon nc-notes"></i>
                             <p>Orders</p>
@@ -49,6 +63,12 @@
                         <a class="nav-link" href="reports.php">
                             <i class="nc-icon nc-paper-2"></i>
                             <p>Reports</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">
+                        <i class="nc-icon nc-layers-3"></i>
+                            <p>View Backup</p>
                         </a>
                     </li>
                     
@@ -82,8 +102,9 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
+                                <a class="nav-link" href="logout.php">
                                     <span class="no-icon">Log out</span>
+                                    
                                 </a>
                             </li>
                         </ul>
@@ -110,8 +131,7 @@
                         </div>
                         <div class="card-body text-danger text-center">
                             <h1 class="huge-text" style="color: orange;">
-                                5
-                                <?php //include 'num_tot_ord.php' ?>
+                                <?php include 'num_tot_ord.php' ?>
                             </h1>
                         </div>
                     </div>
@@ -126,8 +146,7 @@
                         </div>
                         <div class="card-body text-danger text-center">
                             <h1 class="huge-text" style="color: red;">
-                                5
-                                <?php //include 'num_undel_ord.php' ?>
+                                <?php include 'num_undel_ord.php' ?>
                             </h1>
                         </div>
                     </div>
@@ -142,15 +161,14 @@
                         </div>
                         <div class="card-body text-danger text-center">
                             <h1 class="huge-text" style="color: green;">
-                                5
-                                <?php //include 'num_del_ord.php' ?>
+                                <?php include 'num_del_ord.php' ?>
                             </h1>
                         </div>
                     </div>
                     </a>
                 </div>
                 
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <a href="">
                     <div class="card ">
                         <div class="card-header huge-text">
@@ -159,19 +177,40 @@
                         </div>
                         <div class="card-body text-danger text-center">
                             <h1 class="huge-text" style="color: orange;">
-                                Rs. 5
-                                <?php //include 'tot_rev.php' ?>
+                                &#8377
+                                <?php include 'tot_rev.php' ?>
                             </h1>
                         </div>
                     </div>
                     </a>
                 </div>
 
-            <div class="row">
+            
+
                 
+            
                 
+        </div>
+
+        <div class="row">
+        <div class="col-md-4">
+                    <a href="">
+                    <div class="card ">
+                        <div class="card-header huge-text">
+                            <h4 class="card-title">Push to backup</h4>
+                            <p class="card-category">Move all orders to backup and view backup.</p>
+                        </div>
+                        <div class="card-body text-danger text-center">
+                            <h5 style="color: orange;">
+                                This is to be done only after all orders are delivered. This is to ensure that the orders and revenue is reset everyday.
+                            </h5>
+                            <p><i class="nc-icon nc-layers-3" style="font-size: 50px"></i></p>
+                        </div>
+                    </div>
+                    </a>
             </div>
         </div>
+
     </div>
 
     

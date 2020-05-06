@@ -13,6 +13,72 @@
 	<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="../assets/css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
 
+	<style>
+
+
+input[type=submit] {
+	font-size: 1.5rem;
+	width: 50%;
+	background-color: #1DC7EA;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+  
+input[type=submit]:hover {
+	background-color: #4592a0;
+}
+  
+input[type=text], select {
+	width: 50%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=integer], select {
+	width: 50%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.ah2{
+	/* text-align: center; */
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+table {
+border: 2px solid black;
+border-radius:5px;
+border-collapse: collapse;
+width: 90%;
+border-style:solid;
+color: #1DC7EA;
+font-size: 15px;
+text-align: left;
+
+}
+th {
+font-family:Helvetica;
+background-color:#1DC7EA;
+color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2}
+tr:hover {background-color:#ddd;}
+
+	</style>
+
 </head>
 
 <body>
@@ -99,7 +165,7 @@
 
 			<!-- End Navbar -->
 
-			<div class="content">
+	<div class="content">
 	<div class="row">
 	<div class="col-md-4">
 		<a href="edit_menu_add.php">
@@ -147,8 +213,76 @@
 		</a>
 	</div>
 	</div>
-</div>
 
+
+	<div class="row">
+		<div class="col-md-8">
+		<div class="ah2">Enter details of Item to be added</div>
+		<br>
+		<br>
+		<form method="post" action="">  
+			<b>Item ID:<br><input type="integer" name="item_id" placeholder="Enter Item ID of new item ...">
+			<br><br>
+			Item Name:<br><input type="text" name="item_name" placeholder="Enter Item Name of new item ...">
+			<br><br>
+			Price:<br><input type="integer" name="price" placeholder="Enter Price of new item ...">
+			<br><br>
+			<input type="submit" name="insert" value="Submit">
+			</b>
+		</form>
+
+		<?php
+
+			$servername = "localhost";
+			$username = "phpmyadmin";
+			$password = "12345678";
+			$dbname = "yummy5";
+
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+
+			function test_input($data) {
+				$data = trim($data);
+				$data = stripslashes($data);
+				$data = htmlspecialchars($data);
+				return $data;
+			}
+			if ($_SERVER["REQUEST_METHOD"] == "POST"){
+			if(isset($_POST['insert'])){
+
+				$item_id = test_input($_POST["item_id"]);
+				$item_name = test_input($_POST["item_name"]);
+				$price = test_input($_POST["price"]);
+
+				$sql = "INSERT INTO menu VALUES ('$item_id','$item_name','$price')";
+
+				if ($conn->query($sql) === TRUE) {
+					echo "New record created successfully";
+				}
+				else{
+					echo 'Error: ';
+					echo $conn->error;
+				}
+				
+			}
+			}
+		?>
+		</div>
+		
+		<div class="col-md-4">
+			<div class="ah2">Menu</div>
+			<br>
+			<?php include 'view_menu.php'?>
+		</div>
+
+	</div>
+
+
+</div>
 	
 </body>
 <script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
